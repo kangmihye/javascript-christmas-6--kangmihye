@@ -1,0 +1,17 @@
+import { Console } from "@woowacourse/mission-utils";
+import { READDATE, READMENUS } from "../utils/Constants.js";
+
+const InputView = {
+	async readDate() {
+		Console.print(READDATE.greeting);
+		return await Console.readLineAsync(READDATE.askDate);
+	},
+	async readMenus(date) {
+		await Console.readLineAsync(READMENUS.askMenus);
+		Console.print(`${READMENUS.December}${date}${READMENUS.preview}`);
+
+		return;
+	},
+};
+
+export default InputView;
