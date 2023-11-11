@@ -14,3 +14,21 @@ export const PRINTMENU = Object.freeze({
 	orderedMenu: "<주문 메뉴>",
 	unit: "개",
 });
+
+export const DESSERT = Object.freeze({
+	cake: "초코케이크",
+	icecream: "아이스크림",
+});
+
+export const MAIN = Object.freeze({
+	steak: "티본스테이크",
+	rib: "바비큐립",
+	seafoodPasta: "해산물파스타",
+	pasta: "크리스마스파스타",
+});
+
+export const DRINK = Object.freeze({
+	coke: "제로콜라",
+	wine: "레드와인",
+	champagne: "샴페인",
+});
