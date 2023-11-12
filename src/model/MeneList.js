@@ -1,10 +1,18 @@
-import { DRINK } from "../utils/Constants.js";
+import { DRINK, PRICE } from "../utils/Constants.js";
 
 class MenuList {
 	#menuList;
 
 	constructor(menuList) {
 		this.#menuList = menuList;
+	}
+
+	sumTotalPrice() {
+		let total = 0;
+		this.menuList.forEach((cnt, menu) => {
+			total += PRICE[menu] * Number(cnt);
+		});
+		return total;
 	}
 
 	countMenu(menuObj) {

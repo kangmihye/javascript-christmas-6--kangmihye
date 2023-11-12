@@ -32,3 +32,24 @@ export const DRINK = Object.freeze({
 	wine: "레드와인",
 	champagne: "샴페인",
 });
+
+const APPETIZER = {
+	soup: "양송이수프",
+	tapas: "타파스",
+	salad: "시저샐러드",
+};
+
+export const PRICE = Object.freeze({
+	[APPETIZER.soup]: 6000,
+	[APPETIZER.tapas]: 5500,
+	[APPETIZER.salad]: 8000,
+	[MAIN.steak]: 55000,
+	[MAIN.rib]: 54000,
+	[MAIN.seafoodPasta]: 35000,
+	[MAIN.pasta]: 25000,
+	[DESSERT.cake]: 15000,
+	[DESSERT.icecream]: 5000,
+	[DRINK.coke]: 3000,
+	[DRINK.wine]: 60000,
+	[DRINK.champagne]: 25000,
+});
