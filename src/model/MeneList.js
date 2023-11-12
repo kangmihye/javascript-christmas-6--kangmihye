@@ -1,4 +1,4 @@
-import { DESSERT, MAIN, DRINK } from "../utils/Constants";
+import { DRINK } from "../utils/Constants.js";
 
 class MenuList {
 	#menuList;
