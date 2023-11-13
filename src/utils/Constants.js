@@ -10,9 +10,11 @@ export const READMENUS = Object.freeze({
 	preview: "일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n",
 });
 
-export const PRINTMENU = Object.freeze({
+export const OUTPUTVIEW = Object.freeze({
 	orderedMenu: "<주문 메뉴>",
 	unit: "개",
+	totalPrice: "<할인 전 총주문 금액>",
+	krw: "원",
 });
 
 export const DESSERT = Object.freeze({
@@ -53,3 +55,4 @@ export const PRICE = Object.freeze({
 	[DRINK.wine]: 60000,
 	[DRINK.champagne]: 25000,
 });
+
