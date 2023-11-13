@@ -22,6 +22,7 @@ class App {
 		console.log("객체확인", appliedEvents); //삭제
 		OutputView.printBenefit(appliedEvents);
 		OutputView.printTotalBenefit(appliedEvents);
+		OutputView.printPayCharge(menuList, appliedEvents);
 	}
 }
 

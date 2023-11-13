@@ -25,6 +25,7 @@ export const OUTPUTVIEW = Object.freeze({
 	weekDiscount: " 할인: -",
 	freebieDiscount: "증정 이벤트: -25,000",
 	totalBenefit: "<총혜택 금액>",
+	charge: "<할인 후 예상 결제 금액>",
 });
 
 export const DESSERT = Object.freeze({

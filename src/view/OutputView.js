@@ -31,13 +31,17 @@ const OutputView = {
 		Console.print("");
 	},
 	printTotalBenefit(appliedEvents) {
+		let totalBenefit = sumTotalBenefit(appliedEvents);
+		if (appliedEvents.freebie) totalBenefit += 25000;
 		Console.print(OUTPUTVIEW.totalBenefit);
-		Console.print(
-			`-${OutputViewService.separate1000(sumTotalBenefit(appliedEvents))}${OUTPUTVIEW.krw}`
-		);
+		Console.print(`-${OutputViewService.separate1000(totalBenefit)}${OUTPUTVIEW.krw}`);
 		Console.print("");
 	},
-	
+	printPayCharge(menuList, appliedEvents) {
+		const charge = menuList.sumTotalPrice() - sumTotalBenefit(appliedEvents);
+		Console.print(OUTPUTVIEW.charge);
+		Console.print(`${OutputViewService.separate1000(charge)}${OUTPUTVIEW.krw}`);
+	},
 };
 
 export default OutputView;
