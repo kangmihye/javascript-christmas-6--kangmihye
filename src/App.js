@@ -12,6 +12,7 @@ class App {
 
 		OutputView.printMenu(menuList.getMeneList());
 		OutputView.printTotalPrice(menuList);
+		OutputView.printFreebie(menuList);
 	}
 }
 

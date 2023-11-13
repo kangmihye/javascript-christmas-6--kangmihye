@@ -1,6 +1,6 @@
 import { Console } from "@woowacourse/mission-utils";
-import { OUTPUTVIEW } from "../utils/Constants.js";
-import MenuList from "../model/MeneList.js";
+import { NOTHING, OUTPUTVIEW } from "../utils/Constants.js";
+import DiscountEvents from "../domain/DiscountEvents.js";
 
 const OutputView = {
 	printMenu(menuMap) {
@@ -14,6 +14,13 @@ const OutputView = {
 		const price = menuList.sumTotalPrice();
 		Console.print(OUTPUTVIEW.totalPrice);
 		Console.print(`${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${OUTPUTVIEW.krw}`);
+		Console.print("");
+	},
+	printFreebie(menuList) {
+		Console.print(OUTPUTVIEW.freebie);
+		DiscountEvents.canGetFreebie(menuList)
+			? Console.print(OUTPUTVIEW.giftedFreebie)
+			: Console.print(NOTHING);
 	},
 };
 

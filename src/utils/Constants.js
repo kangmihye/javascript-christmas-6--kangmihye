@@ -1,3 +1,5 @@
+export const NOTHING = "없음";
+
 export const READDATE = Object.freeze({
 	greeting: "안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.",
 	askDate: "12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)\n",
@@ -16,6 +18,7 @@ export const OUTPUTVIEW = Object.freeze({
 	totalPrice: "<할인 전 총주문 금액>",
 	krw: "원",
 	freebie: "<증정 메뉴>",
+	giftedFreebie: "샴페인 1개",
 });
 
 export const DESSERT = Object.freeze({
