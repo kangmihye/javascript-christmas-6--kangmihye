@@ -7,10 +7,9 @@ const InputView = {
 		return await Console.readLineAsync(READDATE.askDate);
 	},
 	async readMenus(date) {
-		await Console.readLineAsync(READMENUS.askMenus);
+		const menusAndCnt = await Console.readLineAsync(READMENUS.askMenu);
 		Console.print(`${READMENUS.December}${date}${READMENUS.preview}`);
-
-		return;
+		return menusAndCnt;
 	},
 };
 
