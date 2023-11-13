@@ -15,6 +15,7 @@ export const OUTPUTVIEW = Object.freeze({
 	unit: "개",
 	totalPrice: "<할인 전 총주문 금액>",
 	krw: "원",
+	freebie: "<증정 메뉴>",
 });
 
 export const DESSERT = Object.freeze({
@@ -55,4 +56,3 @@ export const PRICE = Object.freeze({
 	[DRINK.wine]: 60000,
 	[DRINK.champagne]: 25000,
 });
-
