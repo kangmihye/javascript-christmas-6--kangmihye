@@ -1,13 +1,13 @@
 import InputView from "../src/view/InputView.js";
 import OutputView from "../src/view/OutputView.js";
 import InputViewService from "../src/view/service/InputViewService.js";
-import MenuList from "./model/MeneList.js";
+import MenuList from "./model/MenuList.js";
 import DiscountEvents from "./domain/DiscountEvents.js";
 
 class App {
 	async run() {
 		const date = await InputView.readDate();
-		const events = new DiscountEvents(date);
+		const discountEvents = new DiscountEvents(date);
 		const menusAndCnt = await InputView.readMenus(date);
 
 		const menuList = new MenuList(InputViewService.generateMenuList(menusAndCnt));
@@ -15,7 +15,8 @@ class App {
 
 		OutputView.printMenu(menuList.getMeneList());
 		OutputView.printTotalPrice(menuList);
-		OutputView.printFreebie(menuList, events);
+		OutputView.printFreebie(menuList, discountEvents);
+		OutputView.printBenefit(menuList, discountEvents);
 	}
 }
 

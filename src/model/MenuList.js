@@ -7,9 +7,13 @@ class MenuList {
 		this.#menuList = menuList;
 	}
 
+	getMeneList() {
+		return this.#menuList;
+	}
+
 	sumTotalPrice() {
 		let total = 0;
-		this.menuList.forEach((cnt, menu) => {
+		this.#menuList.forEach((cnt, menu) => {
 			total += PRICE[menu] * Number(cnt);
 		});
 		return total;
@@ -18,7 +22,7 @@ class MenuList {
 	countMenu(menuObj) {
 		let cnt = 0;
 		for (let menu in menuObj) {
-			if (this.menuList.has(menuObj[menu])) cnt += Number(this.menuList.get(menuObj[menu]));
+			if (this.#menuList.has(menuObj[menu])) cnt += Number(this.#menuList.get(menuObj[menu]));
 		}
 		return cnt;
 	}
@@ -27,12 +31,15 @@ class MenuList {
 	// return [...this.menuList.keys()].filter((menu) => main.includes(menu)); // 갯수만 출력해도...?
 	// }
 
+	//예외처리로빼자
 	isOnlyDrink() {
 		for (let menu in DRINK) {
-			if (![...this.menuList.keys()].includes(DRINK[menu])) return false;
+			if (![...this.#menuList.keys()].includes(DRINK[menu])) return false;
 		}
 		return true;
 		// const drinks = ["제로콜라", "레드와인", "샴페인"];
 		// return [...this.menuList.keys()].every((menu) => drinks.includes(menu));
 	}
 }
+
+export default MenuList;

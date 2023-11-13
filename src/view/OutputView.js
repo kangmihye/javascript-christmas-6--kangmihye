@@ -1,6 +1,5 @@
 import { Console } from "@woowacourse/mission-utils";
 import { NOTHING, OUTPUTVIEW } from "../utils/Constants.js";
-import DiscountEvents from "../domain/DiscountEvents.js";
 
 const OutputView = {
 	printMenu(menuMap) {
@@ -16,12 +15,17 @@ const OutputView = {
 		Console.print(`${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${OUTPUTVIEW.krw}`);
 		Console.print("");
 	},
-	printFreebie(menuList, DiscountEvents) {
+	printFreebie(menuList, discountEvents) {
 		Console.print(OUTPUTVIEW.freebie);
-		DiscountEvents.canGetFreebie(menuList)
+		discountEvents.canGetFreebie(menuList)
 			? Console.print(OUTPUTVIEW.giftedFreebie)
 			: Console.print(NOTHING);
 		Console.print("");
+	},
+	printBenefit(menuList, discountEvents) {
+		// 적용된게 없으면 없음
+		Console.print(OUTPUTVIEW.benefit);
+		console.log("값확인", discountEvents.xmasDiscount());
 	},
 };
 
