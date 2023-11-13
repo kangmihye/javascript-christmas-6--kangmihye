@@ -20,6 +20,10 @@ export const OUTPUTVIEW = Object.freeze({
 	freebie: "<증정 메뉴>",
 	giftedFreebie: "샴페인 1개",
 	benefit: "<혜택 내역>",
+	xmasDiscount: "크리스마스 디데이 할인: -",
+	starDiscount: "특별 할인: -",
+	weekDiscount: " 할인: -",
+	freebieDiscount: "증정 이벤트: -25,000",
 });
 
 export const DESSERT = Object.freeze({

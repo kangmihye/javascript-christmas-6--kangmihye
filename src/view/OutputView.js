@@ -12,9 +12,8 @@ const OutputView = {
 		Console.print("");
 	},
 	printTotalPrice(menuList) {
-		const price = menuList.sumTotalPrice();
 		Console.print(OUTPUTVIEW.totalPrice);
-		Console.print(`${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${OUTPUTVIEW.krw}`);
+		Console.print(`${OutputViewService.separate1000(menuList.sumTotalPrice())}${OUTPUTVIEW.krw}`);
 		Console.print("");
 	},
 	printFreebie(menuList, discountEvents) {
