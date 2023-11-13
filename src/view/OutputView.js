@@ -1,7 +1,7 @@
 import { Console } from "@woowacourse/mission-utils";
-import { NOTHING, OUTPUTVIEW } from "../utils/Constants.js";
+import { NOTHING, OUTPUTVIEW, BADGE } from "../utils/Constants.js";
 import OutputViewService from "./service/OutputViewService.js";
-import sumTotalBenefit from "../domain/sumTotalBenefit.js";
+import sumTotal from "../domain/sumTotal.js";
 
 const OutputView = {
 	printMenu(menuMap) {
@@ -31,16 +31,20 @@ const OutputView = {
 		Console.print("");
 	},
 	printTotalBenefit(appliedEvents) {
-		let totalBenefit = sumTotalBenefit(appliedEvents);
-		if (appliedEvents.freebie) totalBenefit += 25000;
 		Console.print(OUTPUTVIEW.totalBenefit);
-		Console.print(`-${OutputViewService.separate1000(totalBenefit)}${OUTPUTVIEW.krw}`);
+		Console.print(
+			`-${OutputViewService.separate1000(sumTotal.benefit(appliedEvents))}${OUTPUTVIEW.krw}`
+		);
 		Console.print("");
 	},
 	printPayCharge(menuList, appliedEvents) {
-		const charge = menuList.sumTotalPrice() - sumTotalBenefit(appliedEvents);
+		const charge = menuList.sumTotalPrice() - sumTotal.discount(appliedEvents);
 		Console.print(OUTPUTVIEW.charge);
 		Console.print(`${OutputViewService.separate1000(charge)}${OUTPUTVIEW.krw}`);
+		Console.print("");
+	},
+	printBadge() {
+		Console.print(OUTPUTVIEW.badge);
 	},
 };
 
