@@ -3,6 +3,7 @@ import OutputView from "../src/view/OutputView.js";
 import InputViewService from "../src/view/service/InputViewService.js";
 import MenuList from "./model/MenuList.js";
 import DiscountEvents from "./domain/DiscountEvents.js";
+import applyEvents from "./domain/applyEvents.js";
 
 class App {
 	async run() {
@@ -16,7 +17,11 @@ class App {
 		OutputView.printMenu(menuList.getMeneList());
 		OutputView.printTotalPrice(menuList);
 		OutputView.printFreebie(menuList, discountEvents);
-		OutputView.printBenefit(menuList, discountEvents);
+
+		const appliedEvents = applyEvents(menuList, discountEvents);
+		console.log("객체확인", appliedEvents); //삭제
+		OutputView.printBenefit(appliedEvents);
+		OutputView.printTotalBenefit(appliedEvents);
 	}
 }
 

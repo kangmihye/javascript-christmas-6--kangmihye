@@ -1,7 +1,7 @@
 import { Console } from "@woowacourse/mission-utils";
 import { NOTHING, OUTPUTVIEW } from "../utils/Constants.js";
-import applyEvents from "../domain/applyEvents.js";
 import OutputViewService from "./service/OutputViewService.js";
+import sumTotalBenefit from "../domain/sumTotalBenefit.js";
 
 const OutputView = {
 	printMenu(menuMap) {
@@ -23,14 +23,21 @@ const OutputView = {
 			: Console.print(NOTHING);
 		Console.print("");
 	},
-	printBenefit(menuList, discountEvents) {
-		const appliedEvents = applyEvents(menuList, discountEvents);
+	printBenefit(appliedEvents) {
 		Console.print(OUTPUTVIEW.benefit);
-		if (appliedEvents.canApplyEvents) {
-			console.log("객체확인", appliedEvents); //삭제
-			OutputViewService.distinguishEvents(appliedEvents);
-		} else Console.print(NOTHING);
+		appliedEvents.canApplyEvents
+			? OutputViewService.distinguishEvents(appliedEvents)
+			: Console.print(NOTHING);
+		Console.print("");
 	},
+	printTotalBenefit(appliedEvents) {
+		Console.print(OUTPUTVIEW.totalBenefit);
+		Console.print(
+			`-${OutputViewService.separate1000(sumTotalBenefit(appliedEvents))}${OUTPUTVIEW.krw}`
+		);
+		Console.print("");
+	},
+	
 };
 
 export default OutputView;
