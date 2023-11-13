@@ -19,6 +19,7 @@ export const OUTPUTVIEW = Object.freeze({
 	krw: "원",
 	freebie: "<증정 메뉴>",
 	giftedFreebie: "샴페인 1개",
+	benefit: "<혜택 내역>",
 });
 
 export const DESSERT = Object.freeze({

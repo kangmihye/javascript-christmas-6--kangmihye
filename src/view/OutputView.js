@@ -1,5 +1,7 @@
 import { Console } from "@woowacourse/mission-utils";
 import { NOTHING, OUTPUTVIEW } from "../utils/Constants.js";
+import applyEvents from "../domain/applyEvents.js";
+import OutputViewService from "./service/OutputViewService.js";
 
 const OutputView = {
 	printMenu(menuMap) {
@@ -23,9 +25,12 @@ const OutputView = {
 		Console.print("");
 	},
 	printBenefit(menuList, discountEvents) {
-		// 적용된게 없으면 없음
+		const appliedEvents = applyEvents(menuList, discountEvents);
 		Console.print(OUTPUTVIEW.benefit);
-		console.log("값확인", discountEvents.xmasDiscount());
+		if (appliedEvents.canApplyEvents) {
+			console.log("객체확인", appliedEvents); //삭제
+			OutputViewService.distinguishEvents(appliedEvents);
+		} else Console.print(NOTHING);
 	},
 };
 
