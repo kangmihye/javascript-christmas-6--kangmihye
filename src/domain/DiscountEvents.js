@@ -30,7 +30,7 @@ class DiscountEvents {
 	}
 
 	//매개변수 : MenuList클래스
-	static canGetFreebie(MenuList) {
+	canGetFreebie(MenuList) {
 		if (MenuList.sumTotalPrice() >= 120000) return true;
 		return false;
 	}

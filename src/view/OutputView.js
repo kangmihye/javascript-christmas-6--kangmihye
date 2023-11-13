@@ -16,11 +16,12 @@ const OutputView = {
 		Console.print(`${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${OUTPUTVIEW.krw}`);
 		Console.print("");
 	},
-	printFreebie(menuList) {
+	printFreebie(menuList, DiscountEvents) {
 		Console.print(OUTPUTVIEW.freebie);
 		DiscountEvents.canGetFreebie(menuList)
 			? Console.print(OUTPUTVIEW.giftedFreebie)
 			: Console.print(NOTHING);
+		Console.print("");
 	},
 };
 
