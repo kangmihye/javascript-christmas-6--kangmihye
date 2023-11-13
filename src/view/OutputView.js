@@ -18,23 +18,21 @@ const OutputView = {
 	},
 	printFreebie(menuList, discountEvents) {
 		Console.print(OUTPUTVIEW.freebie);
-		discountEvents.canGetFreebie(menuList)
-			? Console.print(OUTPUTVIEW.giftedFreebie)
-			: Console.print(NOTHING);
+		discountEvents.canGetFreebie(menuList) ? Console.print(OUTPUTVIEW.giftedFreebie) : Console.print(NOTHING);
 		Console.print("");
 	},
 	printBenefit(appliedEvents) {
 		Console.print(OUTPUTVIEW.benefit);
-		appliedEvents.canApplyEvents
-			? OutputViewService.distinguishEvents(appliedEvents)
-			: Console.print(NOTHING);
+		if (!sumTotal.benefit(appliedEvents)) appliedEvents.canApplyEvents = false;
+		appliedEvents.canApplyEvents ? OutputViewService.distinguishEvents(appliedEvents) : Console.print(NOTHING);
 		Console.print("");
 	},
 	printTotalBenefit(appliedEvents) {
+		const totalBenefit = sumTotal.benefit(appliedEvents);
+		let message = `${OutputViewService.separate1000(totalBenefit)}${OUTPUTVIEW.krw}`;
+		if (totalBenefit) message = "-" + message;
 		Console.print(OUTPUTVIEW.totalBenefit);
-		Console.print(
-			`-${OutputViewService.separate1000(sumTotal.benefit(appliedEvents))}${OUTPUTVIEW.krw}`
-		);
+		Console.print(`${message}`);
 		Console.print("");
 	},
 	printPayCharge(menuList, appliedEvents) {
@@ -42,9 +40,6 @@ const OutputView = {
 		Console.print(OUTPUTVIEW.charge);
 		Console.print(`${OutputViewService.separate1000(charge)}${OUTPUTVIEW.krw}`);
 		Console.print("");
-	},
-	printBadge() {
-		Console.print(OUTPUTVIEW.badge);
 	},
 };
 
