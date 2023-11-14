@@ -7,6 +7,7 @@ import {
 	isInvalidMenuCount,
 	isDuplicate,
 	isOnlyDrink,
+	hasExceededTwenty,
 } from "../../utils/condition.js";
 import { ERROR } from "../../utils/Constants.js";
 import InputViewService from "../service/InputViewService.js";
@@ -23,4 +24,5 @@ export const validteInputMenu = (inputMenu) => {
 	if (isInvalidMenuCount(splitedMenuAndCnt)) throw new Error(ERROR.isInvalidMenu);
 	if (isDuplicate(splitedMenuAndCnt)) throw new Error(ERROR.isInvalidMenu);
 	if (isOnlyDrink(splitedMenuAndCnt)) throw new Error(ERROR.isOnlyDrink);
+	if (hasExceededTwenty(splitedMenuAndCnt)) throw new Error(ERROR.hasExceededTwenty);
 };

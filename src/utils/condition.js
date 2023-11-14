@@ -60,3 +60,8 @@ export const isOnlyDrink = (splitedMenuAndCnt) => {
 	}
 	return menus.every((menu) => drink.includes(menu));
 };
+
+export const hasExceededTwenty = (splitedMenuAndCnt) => {
+	//20개가 넘었을 경우 true
+	if (splitedMenuAndCnt.reduce((sum, [, cnt]) => sum + Number(cnt), 0) > 20) return true;
+};
