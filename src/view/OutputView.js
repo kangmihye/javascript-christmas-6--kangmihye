@@ -41,6 +41,11 @@ const OutputView = {
 		Console.print(`${OutputViewService.separate1000(charge)}${OUTPUTVIEW.krw}`);
 		Console.print("");
 	},
+	printBadge(appliedEvents) {
+		Console.print(OUTPUTVIEW.badge);
+		const totalBenefit = sumTotal.benefit(appliedEvents);
+		Console.print(OutputViewService.getBadge(totalBenefit));
+	},
 };
 
 export default OutputView;

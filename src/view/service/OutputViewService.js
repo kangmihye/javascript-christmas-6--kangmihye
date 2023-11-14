@@ -1,5 +1,5 @@
 import { Console } from "@woowacourse/mission-utils";
-import { OUTPUTVIEW } from "../../utils/Constants.js";
+import { OUTPUTVIEW, NOTHING, BADGE } from "../../utils/Constants.js";
 
 const OutputViewService = {
 	separate1000(price) {
@@ -12,7 +12,12 @@ const OutputViewService = {
 		if (week[1]) Console.print(`${week[0]}${OUTPUTVIEW.weekDiscount}${OutputViewService.separate1000(week[1])}${OUTPUTVIEW.krw}`);
 		if (freebie) Console.print(`${OUTPUTVIEW.freebieDiscount}${OUTPUTVIEW.krw}`);
 	},
-	getBadge() {},
+	getBadge(totalBenefit) {
+		if (totalBenefit >= 20000) return BADGE.santa;
+		if (totalBenefit >= 10000) return BADGE.tree;
+		if (totalBenefit >= 5000) return BADGE.star;
+		return NOTHING;
+	},
 };
 
 export default OutputViewService;

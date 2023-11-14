@@ -10,9 +10,7 @@ class App {
 		const date = await InputView.readDate();
 		const discountEvents = new DiscountEvents(date);
 		const menusAndCnt = await InputView.readMenus(date);
-
 		const menuList = new MenuList(InputViewService.generateMenuList(menusAndCnt));
-		console.log("메뉴 맵", menuList.getMeneList());
 
 		OutputView.printMenu(menuList.getMeneList());
 		OutputView.printTotalPrice(menuList);
@@ -23,6 +21,7 @@ class App {
 		OutputView.printBenefit(appliedEvents);
 		OutputView.printTotalBenefit(appliedEvents);
 		OutputView.printPayCharge(menuList, appliedEvents);
+		OutputView.printBadge(appliedEvents);
 	}
 }
 

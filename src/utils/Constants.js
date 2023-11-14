@@ -26,6 +26,13 @@ export const OUTPUTVIEW = Object.freeze({
 	freebieDiscount: "증정 이벤트: -25,000",
 	totalBenefit: "<총혜택 금액>",
 	charge: "<할인 후 예상 결제 금액>",
+	badge: "<12월 이벤트 배지>",
+});
+
+export const BADGE = Object.freeze({
+	star: "별",
+	tree: "트리",
+	santa: "산타",
 });
 
 export const DESSERT = Object.freeze({
