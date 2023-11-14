@@ -9,8 +9,7 @@ class App {
 	async run() {
 		const date = await InputView.readDate();
 		const discountEvents = new DiscountEvents(date);
-		const menusAndCnt = await InputView.readMenus(date);
-		const menuList = new MenuList(InputViewService.generateMenuList(menusAndCnt));
+		const menuList = new MenuList(await InputView.readMenus(date));
 
 		OutputView.printMenu(menuList.getMeneList());
 		OutputView.printTotalPrice(menuList);

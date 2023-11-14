@@ -2,6 +2,7 @@ import { Console } from "@woowacourse/mission-utils";
 import { READDATE, READMENUS } from "../utils/Constants.js";
 import { validateDate } from "./service/validateInput.js";
 import inputErrorHandler from "./service/inputErrorHandler.js";
+import InputViewService from "./service/InputViewService.js";
 
 const InputView = {
 	async readDate() {
@@ -10,8 +11,11 @@ const InputView = {
 	},
 	async readMenus(date) {
 		const menusAndCnt = await Console.readLineAsync(READMENUS.askMenu);
+		const menuList = InputViewService.generateMenuList(menusAndCnt);
+
 		Console.print(`${READMENUS.December}${date}${READMENUS.preview}`);
-		return menusAndCnt;
+
+		return menuList;
 	},
 };
 
