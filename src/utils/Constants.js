@@ -52,7 +52,7 @@ export const DRINK = Object.freeze({
 	champagne: "샴페인",
 });
 
-const APPETIZER = {
+export const APPETIZER = {
 	soup: "양송이수프",
 	tapas: "타파스",
 	salad: "시저샐러드",
@@ -75,4 +75,5 @@ export const PRICE = Object.freeze({
 
 export const ERROR = Object.freeze({
 	isInvalidNum: "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.",
+	isInvalidMenu: "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.",
 });
