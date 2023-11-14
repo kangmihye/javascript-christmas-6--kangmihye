@@ -33,11 +33,11 @@ export const hasRestaurantMenuList = (splitedMenuAndCnt) => {
 		menuListValue.push(restaurantMenuList[menu]);
 	}
 
-	return !splitedMenuAndCnt.every(([menu, cnt]) => menuListValue.includes(menu)); //false일 경우 없어 없으면 에러 true
+	return !splitedMenuAndCnt.every(([menu]) => menuListValue.includes(menu)); //false일 경우 없어 없으면 에러 true
 };
 
 export const isInvalidMenuCount = (splitedMenuAndCnt) => {
-	return splitedMenuAndCnt.some(([menu, cnt]) => {
+	return splitedMenuAndCnt.some(([, cnt]) => {
 		if (!Number(cnt)) return true;
 		isInvalidNumber(cnt);
 	}); // 실수 문자일 경우 true 하나라도 true면 true
@@ -45,7 +45,7 @@ export const isInvalidMenuCount = (splitedMenuAndCnt) => {
 
 export const isDuplicate = (splitedMenuAndCnt) => {
 	const set = new Set();
-	splitedMenuAndCnt.forEach(([menu, cnt]) => {
+	splitedMenuAndCnt.forEach(([menu]) => {
 		set.add(menu);
 	});
 	return set.size !== splitedMenuAndCnt.length; // 같지 않으면 중복 true
