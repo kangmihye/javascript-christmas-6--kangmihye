@@ -7,7 +7,7 @@ const inputErrorHandler = async (msg, validator) => {
 	try {
 		validator(date);
 	} catch (error) {
-		Console.print(error);
+		Console.print(error.toString());
 		date = await inputErrorHandler(msg, validator);
 	}
 	return date;
