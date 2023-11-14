@@ -37,7 +37,10 @@ export const hasRestaurantMenuList = (splitedMenuAndCnt) => {
 };
 
 export const isInvalidMenuCount = (splitedMenuAndCnt) => {
-	return splitedMenuAndCnt.some(([menu, cnt]) => isInvalidNumber(cnt)); // 실수 문자일 경우 true 하나라도 true면 true
+	return splitedMenuAndCnt.some(([menu, cnt]) => {
+		if (!Number(cnt)) return true;
+		isInvalidNumber(cnt);
+	}); // 실수 문자일 경우 true 하나라도 true면 true
 };
 
 export const isDuplicate = (splitedMenuAndCnt) => {
