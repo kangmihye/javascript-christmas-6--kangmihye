@@ -1,9 +1,16 @@
 const InputViewService = {
 	generateMenuList: (menusAndCnt) => {
-		const splitedMenus = menusAndCnt.replaceAll(" ", "").split(",");
-		const menuList = new Map(splitedMenus.map((menu) => menu.split("-")));
-		// const a = menuList.map((menu) => menu.map((item, idx) => (idx === 1 ? Number(item) : item))); 갯수 숫자타입으로?
-
+		const splitedMenus = menusAndCnt
+			.replaceAll(" ", "")
+			.split(",")
+			.map((menu) => menu.split("-"));
+		return getMap(splitedMenus);
+	},
+	getMap: (splitedMenus) => {
+		const menuList = new Map();
+		splitedMenus.forEach(([menu, cnt]) => {
+			menuList.has(menu) ? menuList.set(menu, menuList.get(menu) + Number(cnt)) : menuList.set(menu, Number(cnt));
+		});
 		return menuList;
 	},
 };
