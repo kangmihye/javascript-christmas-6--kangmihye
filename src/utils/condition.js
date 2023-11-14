@@ -50,3 +50,13 @@ export const isDuplicate = (splitedMenuAndCnt) => {
 	});
 	return set.size !== splitedMenuAndCnt.length; // 같지 않으면 중복 true
 };
+
+export const isOnlyDrink = (splitedMenuAndCnt) => {
+	//음료만 주문할 경우 true
+	const menus = splitedMenuAndCnt.map(([menu]) => menu);
+	const drink = [];
+	for (let menu in DRINK) {
+		drink.push(DRINK[menu]);
+	}
+	return menus.every((menu) => drink.includes(menu));
+};

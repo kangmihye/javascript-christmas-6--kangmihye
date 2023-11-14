@@ -6,6 +6,7 @@ import {
 	hasRestaurantMenuList,
 	isInvalidMenuCount,
 	isDuplicate,
+	isOnlyDrink,
 } from "../../utils/condition.js";
 import { ERROR } from "../../utils/Constants.js";
 import InputViewService from "../service/InputViewService.js";
@@ -21,4 +22,5 @@ export const validteInputMenu = (inputMenu) => {
 	if (hasRestaurantMenuList(splitedMenuAndCnt)) throw new Error(ERROR.isInvalidMenu);
 	if (isInvalidMenuCount(splitedMenuAndCnt)) throw new Error(ERROR.isInvalidMenu);
 	if (isDuplicate(splitedMenuAndCnt)) throw new Error(ERROR.isInvalidMenu);
+	if (isOnlyDrink(splitedMenuAndCnt)) throw new Error(ERROR.isOnlyDrink);
 };

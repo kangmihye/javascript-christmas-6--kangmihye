@@ -26,14 +26,6 @@ class MenuList {
 		}
 		return cnt;
 	}
-
-	//예외처리로빼자
-	isOnlyDrink() {
-		for (let menu in DRINK) {
-			if (![...this.#menuList.keys()].includes(DRINK[menu])) return false;
-		}
-		return true;
-	}
 }
 
 export default MenuList;
