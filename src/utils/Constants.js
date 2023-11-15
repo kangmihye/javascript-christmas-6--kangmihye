@@ -73,6 +73,27 @@ export const PRICE = Object.freeze({
 	[DRINK.champagne]: 25000,
 });
 
+export const MONEY = Object.freeze({
+	canApplyEventPrice: 10000,
+	thousand: 1000,
+	hundred: 100,
+	getFreebiePrice: 120000,
+});
+
+export const DATE = Object.freeze({
+	thisYear: 2023,
+	indexDecember: 11,
+	indexFriday: 5,
+	Xmas: "25",
+	third: "3",
+	tenth: "10",
+	seventeenth: "17",
+	XmasEve: "24",
+	thirtyFirst: "31",
+	weekdays: "평일",
+	weekends: "주말",
+});
+
 export const ERROR = Object.freeze({
 	isInvalidNum: "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.",
 	isInvalidMenu: "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.",

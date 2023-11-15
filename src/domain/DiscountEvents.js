@@ -1,39 +1,32 @@
-import { DESSERT, MAIN } from "../utils/Constants.js";
+import { DESSERT, MAIN, DATE, MONEY } from "../utils/Constants.js";
 class DiscountEvents {
 	#date;
 	#day;
 
 	constructor(date) {
 		this.#date = date;
-		this.#day = new Date(2023, 11, date).getDay(); //number  // 0 ~ 4:평일 5,6:주말
+		this.#day = new Date(DATE.thisYear, DATE.indexDecember, date).getDay(); //0 ~ 4:평일 5,6:주말
 	}
 
 	xmasDiscount() {
-		if (this.#date <= 25) return 1000 + (this.#date - 1) * 100;
-		// if (this.#date > 25)
+		if (this.#date <= DATE.Xmas) return MONEY.thousand + (this.#date - 1) * MONEY.hundred;
 		return 0;
 	}
 
 	starDiscount() {
-		const star = ["3", "10", "17", "24", "25", "31"];
-		if (star.includes(this.#date)) return 1000;
+		const star = [DATE.third, DATE.tenth, DATE.seventeenth, DATE.XmasEve, DATE.Xmas, DATE.thirtyFirst];
+		if (star.includes(this.#date)) return MONEY.thousand;
 		return 0;
 	}
 
-	//매개변수 : MenuList클래스
 	weekDiscount(MenuList) {
-		if (this.#day < 5)
-			// 평일엔 디저트 개당 2023
-			return ["평일", MenuList.countMenu(DESSERT) * 2023];
+		if (this.#day < DATE.indexFriday) return [DATE.weekdays, MenuList.countMenu(DESSERT) * DATE.thisYear];
 
-		// if (this.day >= 5)
-		//주말엔 메인 2023
-		return ["주말", MenuList.countMenu(MAIN) * 2023];
+		return [DATE.weekends, MenuList.countMenu(MAIN) * DATE.thisYear];
 	}
 
-	//매개변수 : MenuList클래스
 	canGetFreebie(MenuList) {
-		if (MenuList.sumTotalPrice() >= 120000) return true;
+		if (MenuList.sumTotalPrice() >= MONEY.getFreebiePrice) return true;
 		return false;
 	}
 }
