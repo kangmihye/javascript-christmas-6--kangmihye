@@ -1,10 +1,10 @@
+import { MONEY } from "../utils/Constants.js";
 const applyEvents = (menuList, discountEvents) => {
 	const result = {
 		canApplyEvents: true,
 	};
 
-	//총주문 금액 10,000원 이상부터 이벤트가 적용
-	if (menuList.sumTotalPrice() >= 10000) {
+	if (menuList.sumTotalPrice() >= MONEY.canApplyEventPrice) {
 		result.xmas = discountEvents.xmasDiscount();
 		result.star = discountEvents.starDiscount();
 		result.week = discountEvents.weekDiscount(menuList);
