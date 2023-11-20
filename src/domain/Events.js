@@ -1,3 +1,5 @@
+import { DESSERT, MAIN } from "../utils/Constants.js";
+
 class Events {
 	#date;
 	#day;
@@ -10,6 +12,15 @@ class Events {
 	discountXmas() {
 		if (this.#date <= 25) return 1000 + (this.#date - 1) * 100;
 		return 0;
+	}
+
+	discountWeek(menuList) {
+		if (this.#day < 5)
+			//평일
+			return menuList.countMenu(DESSERT) * 2023;
+		if (this.#day >= 5)
+			//주말
+			return menuList.countMenu(MAIN) * 2023;
 	}
 
 	canGetFreebie(totalPrice) {
