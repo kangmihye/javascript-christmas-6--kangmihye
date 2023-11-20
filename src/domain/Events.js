@@ -1,4 +1,4 @@
-import { DESSERT, MAIN } from "../utils/Constants.js";
+import { DESSERT, MAIN, STARDAY } from "../utils/Constants.js";
 
 class Events {
 	#date;
@@ -23,10 +23,16 @@ class Events {
 			return menuList.countMenu(MAIN) * 2023;
 	}
 
+	discountStar() {
+		if (STARDAY.includes(Number(this.#date))) return 1000;
+		return 0;
+	}
+
 	canGetFreebie(totalPrice) {
 		if (totalPrice >= 120000) return true;
 		return false;
 	}
 }
 
+// console.log(new Events(25).discountStar());
 export default Events;

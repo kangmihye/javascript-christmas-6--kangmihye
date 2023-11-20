@@ -51,3 +51,5 @@ export const PRICE = Object.freeze({
 	[DRINK.wine]: 60000,
 	[DRINK.champagne]: 25000,
 });
+
+export const STARDAY = [3, 10, 17, 24, 25, 31];
