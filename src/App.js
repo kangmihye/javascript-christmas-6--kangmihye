@@ -5,9 +5,9 @@ class App {
 	async run() {
 		const date = await InputView.readDate();
 		const menuInput = await InputView.readMenu(date);
-		const b = InputViewService.parseInput(menuInput);
-		console.log(b);
-		OutputView.printMenu();
+		const parsedMenu = InputViewService.parseInput(menuInput);
+		console.log(parsedMenu);
+		OutputView.printMenu(parsedMenu);
 	}
 }
 
