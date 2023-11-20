@@ -8,8 +8,10 @@ class App {
 		const menuInput = await InputView.readMenu(date);
 		const parsedMenu = InputViewService.parseInput(menuInput); //[ [ '타파스', 1 ], [ '제로콜라', 1 ] ]
 		const menuList = new MenuList(parsedMenu); // {'타파스' => 1}
+		const totalPrice = menuList.sumTotalPrice();
 		OutputView.printMenu(parsedMenu);
-		OutputView.printTotalPrice(menuList.sumTotalPrice()); // 할인 전 총주문 금액 
+		OutputView.printTotalPrice(totalPrice); // 할인 전 총주문 금액
+		OutputView.printFreebie(totalPrice);
 	}
 }
 

@@ -8,6 +8,9 @@ export const INPUT_VIEW = Object.freeze({
 export const OUTPUT_VIEW = Object.freeze({
 	orderedMenu: "<주문 메뉴>",
 	totalPrice: "<할인 전 총주문 금액>",
+	freebie: "<증정 메뉴>",
+	gettingFreebie: "샴페인 1개",
+	nothing: "없음",
 });
 
 export const APPETIZER = Object.freeze({

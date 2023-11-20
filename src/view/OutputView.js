@@ -13,6 +13,12 @@ const OutputView = {
 	printTotalPrice(totalPrice) {
 		Console.print(OUTPUT_VIEW.totalPrice);
 		Console.print(`${OutputViewService.numberWithCommas(totalPrice)}원`);
+		Console.print("");
+	},
+	printFreebie(totalPrice) {
+		Console.print(OUTPUT_VIEW.freebie);
+		totalPrice >= 120000 ? Console.print(OUTPUT_VIEW.gettingFreebie) : Console.print(OUTPUT_VIEW.nothing);
+		Console.print("");
 	},
 };
 
