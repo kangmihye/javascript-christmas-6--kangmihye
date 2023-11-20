@@ -1,6 +1,7 @@
 const InputViewService = {
 	parseInput: (input) => {
-		return input.split(",").map((menu) => menu.split("-"));
+		const parsedInput = input.split(",").map((menu) => menu.split("-"));
+		return parsedInput.map(([menu, cnt]) => [menu, Number(cnt)]);
 	},
 };
 
