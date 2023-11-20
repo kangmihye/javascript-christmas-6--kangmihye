@@ -1,6 +1,7 @@
 import { Console } from "@woowacourse/mission-utils";
 import { OUTPUT_VIEW } from "../utils/Constants.js";
 import OutputViewService from "./viewService/OutputViewService.js";
+import Events from "../domain/Events.js";
 
 const OutputView = {
 	printMenu(parsedMenu) {
@@ -17,7 +18,7 @@ const OutputView = {
 	},
 	printFreebie(totalPrice) {
 		Console.print(OUTPUT_VIEW.freebie);
-		totalPrice >= 120000 ? Console.print(OUTPUT_VIEW.gettingFreebie) : Console.print(OUTPUT_VIEW.nothing);
+		Events.canGetFreebie(totalPrice) ? Console.print(OUTPUT_VIEW.gettingFreebie) : Console.print(OUTPUT_VIEW.nothing);
 		Console.print("");
 	},
 };
