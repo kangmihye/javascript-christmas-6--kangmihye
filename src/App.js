@@ -9,7 +9,7 @@ class App {
 		const parsedMenu = InputViewService.parseInput(menuInput); //[ [ '타파스', 1 ], [ '제로콜라', 1 ] ]
 		const menuList = new MenuList(parsedMenu); // {'타파스' => 1}
 		OutputView.printMenu(parsedMenu);
-		OutputView.printTotalPrice(menuList.sumTotalPrice());
+		OutputView.printTotalPrice(menuList.sumTotalPrice()); // 할인 전 총주문 금액 
 	}
 }
 

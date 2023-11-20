@@ -1,5 +1,6 @@
 import { Console } from "@woowacourse/mission-utils";
 import { OUTPUT_VIEW } from "../utils/Constants.js";
+import OutputViewService from "./viewService/OutputViewService.js";
 
 const OutputView = {
 	printMenu(parsedMenu) {
@@ -11,7 +12,7 @@ const OutputView = {
 	},
 	printTotalPrice(totalPrice) {
 		Console.print(OUTPUT_VIEW.totalPrice);
-		Console.print(`${totalPrice}원`);
+		Console.print(`${OutputViewService.numberWithCommas(totalPrice)}원`);
 	},
 };
 
