@@ -1,6 +1,7 @@
 const applyEvents = (events, menuList) => {
 	const appliedEvents = {
 		canApplyEvents: false,
+		freebie: false,
 	};
 	if (totalPrice >= 10000) {
 		appliedEvents.canApplyEvents = true;
