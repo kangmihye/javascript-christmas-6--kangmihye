@@ -6,8 +6,9 @@ const InputView = {
 		const input = await Console.readLineAsync(INPUT_VIEW.askDate);
 		return input;
 	},
-	async readMenu() {
+	async readMenu(date) {
 		const input = await Console.readLineAsync(INPUT_VIEW.askMenu);
+		Console.print(INPUT_VIEW.preview(date));
 		return input;
 	},
 };
