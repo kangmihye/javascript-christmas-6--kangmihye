@@ -7,6 +7,10 @@ const OutputView = {
 		parsedMenu.forEach(([menu, cnt]) => {
 			Console.print(`${menu} ${cnt}개`);
 		});
+		Console.print("");
+	},
+	printTotalPrice() {
+		Console.print(OUTPUT_VIEW.totalPrice);
 	},
 };
 

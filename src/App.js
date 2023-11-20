@@ -8,6 +8,7 @@ class App {
 		const parsedMenu = InputViewService.parseInput(menuInput);
 		console.log(parsedMenu);
 		OutputView.printMenu(parsedMenu);
+		OutputView.printTotalPrice();
 	}
 }
 
