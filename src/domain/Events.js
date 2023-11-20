@@ -15,12 +15,8 @@ class Events {
 	}
 
 	discountWeek(menuList) {
-		if (this.#day < 5)
-			//평일
-			return menuList.countMenu(DESSERT) * 2023;
-		if (this.#day >= 5)
-			//주말
-			return menuList.countMenu(MAIN) * 2023;
+		if (this.#day < 5) return ["평일", menuList.countMenu(DESSERT) * 2023];
+		if (this.#day >= 5) return ["주말", menuList.countMenu(MAIN) * 2023];
 	}
 
 	discountStar() {
@@ -34,5 +30,4 @@ class Events {
 	}
 }
 
-// console.log(new Events(25).discountStar());
 export default Events;
