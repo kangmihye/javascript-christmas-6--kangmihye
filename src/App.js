@@ -3,7 +3,8 @@ import InputView from "./view/InputView.js";
 class App {
 	async run() {
 		const a = await InputView.readDate();
-		console.log(a);
+		const b = await InputView.readMenu();
+		console.log(a, b);
 	}
 }
 
