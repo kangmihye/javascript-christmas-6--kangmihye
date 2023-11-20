@@ -9,8 +9,9 @@ const OutputView = {
 		});
 		Console.print("");
 	},
-	printTotalPrice() {
+	printTotalPrice(totalPrice) {
 		Console.print(OUTPUT_VIEW.totalPrice);
+		Console.print(`${totalPrice}원`);
 	},
 };
 
